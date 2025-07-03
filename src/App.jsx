@@ -1,0 +1,394 @@
+import { useState, useEffect } from 'react';
+import { Routes, Route, Link, useNavigate, Navigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaMoon, FaSun, FaEye, FaEyeSlash, FaWhatsapp } from 'react-icons/fa';
+import { RiSparklingFill } from 'react-icons/ri';
+import Home from './pages/Home';
+import Services from './pages/Services';
+import Gallery from './pages/Gallery';
+import Book from './pages/Book';
+import Contact from './pages/Contact';
+import CourseUpload from './pages/admin/CourseUpload';
+import CoursePlayer from './pages/CoursePlayer';
+import ThankYou from './pages/ThankYou';
+import './App.css';
+import Courses from './pages/Courses';
+import Partnership from './pages/Partnership';
+import AffiliateProgram from './pages/AffiliateProgram';
+
+
+export default function App() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [sparkles, setSparkles] = useState([]);
+  const navigate = useNavigate();
+
+  // Create magical sparkles
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2500);
+    
+    const sparkleInterval = setInterval(() => {
+      setSparkles(prev => [
+        ...prev,
+        {
+          id: Date.now(),
+          x: Math.random() * 100,
+          y: Math.random() * 100,
+          size: Math.random() * 10 + 5,
+          duration: Math.random() * 3 + 2
+        }
+      ]);
+      
+      // Remove old sparkles
+      if (sparkles.length > 20) {
+        setSparkles(prev => prev.slice(1));
+      }
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+      clearInterval(sparkleInterval);
+    };
+  }, [sparkles.length]);
+
+  const handleLogin = () => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailPattern.test(email) && password.length >= 6) {
+      // Magical login transition
+      setIsLoggedIn(true);
+      navigate('/');
+    } else {
+      // Playful error animation
+      const form = document.querySelector('.glass-form');
+      form.classList.add('animate-shake');
+      setTimeout(() => form.classList.remove('animate-shake'), 500);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gradient-to-br from-purple-900 to-pink-800 text-white">
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-center"
+        >
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+            className="mx-auto mb-6 text-6xl"
+          >
+            💅
+          </motion.div>
+          <motion.h1 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="text-3xl font-bold mb-2"
+          >
+            Lily's Luxe
+          </motion.h1>
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="text-pink-200"
+          >
+            Preparing something beautiful...
+          </motion.p>
+        </motion.div>
+      </div>
+    );
+  }
+
+  if (!isLoggedIn) {
+    return (
+      <div
+        className={`min-h-screen flex items-center justify-center relative overflow-hidden ${
+          darkMode ? 'dark' : ''
+        }`}
+        style={{
+          backgroundImage: "url('/images/lily.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Magical overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/60 to-pink-800/40"></div>
+        
+        {/* Floating sparkles */}
+        {sparkles.map(sparkle => (
+          <motion.div
+            key={sparkle.id}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ 
+              opacity: [0, 1, 0],
+              scale: [0, 1, 0],
+              x: [sparkle.x, sparkle.x + (Math.random() * 20 - 10)],
+              y: [sparkle.y, sparkle.y + (Math.random() * 20 - 10)]
+            }}
+            transition={{ 
+              duration: sparkle.duration,
+              repeat: Infinity,
+              repeatDelay: Math.random() * 5
+            }}
+            style={{
+              left: `${sparkle.x}%`,
+              top: `${sparkle.y}%`,
+              width: `${sparkle.size}px`,
+              height: `${sparkle.size}px`,
+            }}
+            className="absolute rounded-full bg-white/80 backdrop-blur-sm pointer-events-none"
+          />
+        ))}
+
+        {/* Login form with magical effects */}
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="relative rainbow-border p-[2px] rounded-3xl z-10 hover:shadow-glow transition-all duration-500"
+        >
+          <div className="glass-form bg-white/5 p-10 rounded-3xl shadow-2xl w-[350px] sm:w-[400px] backdrop-blur-lg border border-white/10 hover:border-white/20 transition-all duration-300">
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              className="text-center mb-6"
+            >
+              <h1 className="text-4xl font-bold text-center text-white mb-4 flex items-center justify-center gap-2">
+                <RiSparklingFill className="text-yellow-300 animate-pulse" />
+                Lily's Luxe
+                <RiSparklingFill className="text-yellow-300 animate-pulse" />
+              </h1>
+              <p className="text-center text-white/80 mb-6">
+                Where beauty meets perfection ✨
+              </p>
+            </motion.div>
+
+            <div className="mb-4">
+              <label htmlFor="email" className="block text-white text-sm font-medium mb-1 flex items-center">
+                <RiSparklingFill className="mr-2 text-yellow-200 text-xs" />
+                Email
+              </label>
+              <motion.div whileHover={{ scale: 1.01 }}>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Your magical email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-300/50 mb-4 bg-white/10 text-white placeholder:text-white/50 transition-all"
+                />
+              </motion.div>
+            </div>
+
+            <div className="mb-6">
+              <label htmlFor="password" className="block text-white text-sm font-medium mb-1 flex items-center">
+                <RiSparklingFill className="mr-2 text-yellow-200 text-xs" />
+                Password
+              </label>
+              <motion.div whileHover={{ scale: 1.01 }} className="relative">
+                <input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Your secret phrase"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-300/50 bg-white/10 text-white placeholder:text-white/50 transition-all"
+                />
+                <button
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-3 text-white/70 hover:text-white transition-colors"
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
+              </motion.div>
+            </div>
+
+            <motion.button
+              onClick={handleLogin}
+              whileHover={{ scale: 1.03, boxShadow: "0 0 15px rgba(255, 215, 0, 0.5)" }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-3 rounded-lg hover:bg-white/30 transition-all border border-white/20 flex items-center justify-center gap-2"
+            >
+              <RiSparklingFill className="animate-pulse" />
+              Enter the Luxe World
+            </motion.button>
+
+            <motion.button
+              onClick={() => setDarkMode(!darkMode)}
+              whileHover={{ scale: 1.05 }}
+              className="mt-4 text-sm text-white/70 hover:text-yellow-300 transition-colors flex items-center justify-center gap-2 mx-auto"
+            >
+              {darkMode ? (
+                <>
+                  <FaSun className="text-yellow-300" />
+                  Light Mode
+                </>
+              ) : (
+                <>
+                  <FaMoon />
+                  Dark Mode
+                </>
+              )}
+            </motion.button>
+          </div>
+        </motion.div>
+
+        {/* Floating decorative elements */}
+        <motion.div
+          animate={{
+            y: [0, -15, 0],
+            rotate: [0, 5, -5, 0]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            repeatType: 'reverse'
+          }}
+          className="absolute bottom-10 left-10 text-4xl opacity-70"
+        >
+          💖
+        </motion.div>
+        <motion.div
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, -8, 8, 0]
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            repeatType: 'reverse'
+          }}
+          className="absolute top-1/4 right-16 text-5xl opacity-80"
+        >
+          ✨
+        </motion.div>
+      </div>
+    );
+  }
+
+  return (
+    <div className={`min-h-screen transition-colors duration-500 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-br from-rose-50 to-pink-50 text-pink-900'}`}>
+      {/* Animated header */}
+      <motion.header 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+        className={`backdrop-blur-md ${darkMode ? 'bg-black/80' : 'bg-white/80'} shadow-lg fixed top-0 left-0 right-0 p-4 flex justify-between items-center border-b ${darkMode ? 'border-pink-900' : 'border-pink-200'} z-50`}
+      >
+        <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-2">
+          <RiSparklingFill className={`text-xl ${darkMode ? 'text-yellow-300' : 'text-pink-500'} animate-pulse`} />
+          <h1 className="text-xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
+            Lily's Nail Luxe
+          </h1>
+        </motion.div>
+        
+        <nav className="hidden md:flex space-x-6">
+          {['Home', 'Services', 'Gallery', 'Book', 'Contact', 'Courses', 'Partnership', 'Affiliate',].map((item) => (
+            <motion.div
+              key={item}
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link 
+                to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                className={`font-medium hover:text-pink-500 transition-colors ${darkMode ? 'hover:text-yellow-300' : 'hover:text-pink-600'}`}
+              >
+                {item}
+              </Link>
+            </motion.div>
+          ))}
+        </nav>
+        
+        <motion.button
+          onClick={() => setDarkMode(!darkMode)}
+          whileHover={{ scale: 1.1, rotate: 15 }}
+          whileTap={{ scale: 0.9 }}
+          className={`p-2 rounded-full ${darkMode ? 'bg-pink-900/30 hover:bg-pink-900/50' : 'bg-pink-100 hover:bg-pink-200'} transition-colors`}
+        >
+          {darkMode ? <FaSun className="text-yellow-300" /> : <FaMoon className="text-pink-600" />}
+        </motion.button>
+      </motion.header>
+
+      {/* Main content with subtle entrance animation */}
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="pt-24 px-4 sm:px-6 pb-20"
+      >
+        <AnimatePresence mode="wait">
+          <Routes>
+            <Route path="/" element={<Home darkMode={darkMode} />} />
+            <Route path="/services" element={<Services darkMode={darkMode} />} />
+            <Route path="/gallery" element={<Gallery darkMode={darkMode} />} />
+            <Route path="/book" element={<Book darkMode={darkMode} />} />
+            <Route path="/contact" element={<Contact darkMode={darkMode} />} />
+            <Route path="/upload-course" element={<CourseUpload darkMode={darkMode} />} />
+            <Route path="/course/:id" element={<CoursePlayer darkMode={darkMode} />} />
+            <Route path="/thank-you" element={<ThankYou darkMode={darkMode} />} />
+            <Route path="/courses" element={<Courses darkMode={darkMode} />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="/partnership" element={<Partnership />} />
+            <Route path="/affiliate" element={<AffiliateProgram />} />
+
+          </Routes>
+        </AnimatePresence>
+      </motion.main>
+
+      {/* Glowing footer */}
+      <motion.footer 
+        className={`text-center py-8 border-t ${darkMode ? 'border-pink-900 bg-black/70' : 'border-pink-200 bg-white/70'} shadow-inner relative overflow-hidden`}
+      >
+        {/* Footer sparkles */}
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{
+              y: [0, -10, 0],
+              opacity: [0.3, 1, 0.3]
+            }}
+            transition={{
+              duration: 3 + i,
+              repeat: Infinity,
+              delay: i * 0.5
+            }}
+            style={{
+              left: `${10 + (i * 20)}%`,
+              fontSize: `${Math.random() * 10 + 10}px`
+            }}
+            className="absolute top-4 text-yellow-300"
+          >
+            ✨
+          </motion.div>
+        ))}
+        
+        <p className="text-sm relative z-10">
+          &copy; {new Date().getFullYear()} Lily's Nail Luxe. All rights reserved.
+        </p>
+        <p className="text-xs mt-2 opacity-70 relative z-10">
+          Crafted with 💖 and magic
+        </p>
+      </motion.footer>
+
+      {/* Floating WhatsApp button */}
+      <motion.a
+        href="https://wa.link/fdt40r"
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        whileHover={{ scale: 1.1, rotate: 10 }}
+        whileTap={{ scale: 0.9 }}
+        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-50 flex items-center justify-center text-2xl"
+      >
+        <FaWhatsapp />
+      </motion.a>
+    </div>
+  );
+}
