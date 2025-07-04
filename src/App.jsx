@@ -118,43 +118,17 @@ export default function App() {
           backgroundPosition: 'center',
         }}
       >
-        {/* Magical overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/60 to-pink-800/40"></div>
+        {/* Solid dark pink overlay */}
+        <div className="absolute inset-0 bg-pink-900/80"></div>
         
-        {/* Floating sparkles */}
-        {sparkles.map(sparkle => (
-          <motion.div
-            key={sparkle.id}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ 
-              opacity: [0, 1, 0],
-              scale: [0, 1, 0],
-              x: [sparkle.x, sparkle.x + (Math.random() * 20 - 10)],
-              y: [sparkle.y, sparkle.y + (Math.random() * 20 - 10)]
-            }}
-            transition={{ 
-              duration: sparkle.duration,
-              repeat: Infinity,
-              repeatDelay: Math.random() * 5
-            }}
-            style={{
-              left: `${sparkle.x}%`,
-              top: `${sparkle.y}%`,
-              width: `${sparkle.size}px`,
-              height: `${sparkle.size}px`,
-            }}
-            className="absolute rounded-full bg-white/80 backdrop-blur-sm pointer-events-none"
-          />
-        ))}
-
-        {/* Login form with magical effects */}
+        {/* Login form with solid dark pink styling */}
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="relative rainbow-border p-[2px] rounded-3xl z-10 hover:shadow-glow transition-all duration-500"
+          className="relative z-10"
         >
-          <div className="glass-form bg-white/5 p-10 rounded-3xl shadow-2xl w-[350px] sm:w-[400px] backdrop-blur-lg border border-white/10 hover:border-white/20 transition-all duration-300">
+          <div className="glass-form bg-pink-900/90 p-10 rounded-3xl shadow-2xl w-[350px] sm:w-[400px] backdrop-blur-lg border border-pink-700 hover:border-pink-500 transition-all duration-300">
             <motion.div 
               whileHover={{ scale: 1.05 }}
               className="text-center mb-6"
@@ -178,10 +152,10 @@ export default function App() {
                 <input
                   id="email"
                   type="email"
-                  placeholder="Your magical email"
+                  placeholder="Your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-300/50 mb-4 bg-white/10 text-white placeholder:text-white/50 transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-300/50 mb-4 bg-pink-800/50 text-white placeholder:text-white/50 transition-all"
                 />
               </motion.div>
             </div>
@@ -195,10 +169,10 @@ export default function App() {
                 <input
                   id="password"
                   type={showPassword ? "text" : "password"}
-                  placeholder="Your secret phrase"
+                  placeholder="Your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-300/50 bg-white/10 text-white placeholder:text-white/50 transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-300/50 bg-pink-800/50 text-white placeholder:text-white/50 transition-all"
                 />
                 <button
                   onClick={() => setShowPassword(!showPassword)}
@@ -211,9 +185,9 @@ export default function App() {
 
             <motion.button
               onClick={handleLogin}
-              whileHover={{ scale: 1.03, boxShadow: "0 0 15px rgba(255, 215, 0, 0.5)" }}
+              whileHover={{ scale: 1.03, boxShadow: "0 0 15px rgba(255, 255, 255, 0.5)" }}
               whileTap={{ scale: 0.98 }}
-              className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-3 rounded-lg hover:bg-white/30 transition-all border border-white/20 flex items-center justify-center gap-2"
+              className="w-full bg-pink-700 text-white font-bold py-3 rounded-lg hover:bg-pink-600 transition-all border border-pink-600 flex items-center justify-center gap-2"
             >
               <RiSparklingFill className="animate-pulse" />
               Enter the Luxe World
@@ -237,36 +211,6 @@ export default function App() {
               )}
             </motion.button>
           </div>
-        </motion.div>
-
-        {/* Floating decorative elements */}
-        <motion.div
-          animate={{
-            y: [0, -15, 0],
-            rotate: [0, 5, -5, 0]
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: 'reverse'
-          }}
-          className="absolute bottom-10 left-10 text-4xl opacity-70"
-        >
-          💖
-        </motion.div>
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, -8, 8, 0]
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            repeatType: 'reverse'
-          }}
-          className="absolute top-1/4 right-16 text-5xl opacity-80"
-        >
-          ✨
         </motion.div>
       </div>
     );
@@ -336,42 +280,18 @@ export default function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
             <Route path="/partnership" element={<Partnership />} />
             <Route path="/affiliate" element={<AffiliateProgram />} />
-
           </Routes>
         </AnimatePresence>
       </motion.main>
 
-      {/* Glowing footer */}
+      {/* Footer */}
       <motion.footer 
-        className={`text-center py-8 border-t ${darkMode ? 'border-pink-900 bg-black/70' : 'border-pink-200 bg-white/70'} shadow-inner relative overflow-hidden`}
+        className={`text-center py-8 border-t ${darkMode ? 'border-pink-900 bg-black/70' : 'border-pink-200 bg-white/70'} shadow-inner`}
       >
-        {/* Footer sparkles */}
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -10, 0],
-              opacity: [0.3, 1, 0.3]
-            }}
-            transition={{
-              duration: 3 + i,
-              repeat: Infinity,
-              delay: i * 0.5
-            }}
-            style={{
-              left: `${10 + (i * 20)}%`,
-              fontSize: `${Math.random() * 10 + 10}px`
-            }}
-            className="absolute top-4 text-yellow-300"
-          >
-            ✨
-          </motion.div>
-        ))}
-        
-        <p className="text-sm relative z-10">
+        <p className="text-sm">
           &copy; {new Date().getFullYear()} Lily's Nail Luxe. All rights reserved.
         </p>
-        <p className="text-xs mt-2 opacity-70 relative z-10">
+        <p className="text-xs mt-2 opacity-70">
           Crafted with 💖 and magic
         </p>
       </motion.footer>
