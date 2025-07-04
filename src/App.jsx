@@ -165,14 +165,14 @@ export default function App() {
               
                "May God bless you abundantly on this special day.
                 May your heart always know peace, your hands create beauty,
-                and your life overflow with joy, grace, and divine favor.
+                and your life overflow with Joy, Grace, and Divine Favor.
 
                You are a light to many — Gentle, Strong, and Radiant.
                I pray this new year brings you closer to your dreams,
                deeper in love, and stronger in purpose.
 
-              Keep shining, beautiful soul.
-              You are deeply loved. 💖🌸✨!"
+              Keep Shining, Beautiful Soul.
+              You are Deeply Loved. 💖🌸✨!"
 
 
               </p>
