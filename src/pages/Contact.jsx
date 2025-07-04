@@ -37,16 +37,16 @@ export default function Contact() {
 
     emailjs
       .send(
-        "service_e50xlsr",      // ✅ EmailJS service ID
-        "template_8ktx5h9",     // ✅ EmailJS template ID (set reply variables)
+        "service_e50xlsr",
+        "template_8ktx5h9",
         templateParams,
-        "6yybQr5bKi-N0uTnU"     // ✅ EmailJS public key
+        "6yybQr5bKi-N0uTnU"
       )
       .then(() => {
         // WhatsApp Notification to Lilian
         const whatsappMsg = `NEW BOOKING!\n\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}\nPreferred Date: ${appointmentDate?.toDateString() || 'Not selected'}`;
         const encodedMsg = encodeURIComponent(whatsappMsg);
-        const whatsappURL = `https://wa.me/233555017768?text=${encodedMsg}`;
+        const whatsappURL = `https://wa.me/233534980811?text=${encodedMsg}`;
         window.open(whatsappURL, "_blank");
 
         // Reset + Redirect
@@ -69,19 +69,22 @@ export default function Contact() {
           {/* LEFT: Info + Map */}
           <div className="space-y-6">
             <h2 className="text-2xl font-semibold text-pink-900 dark:text-white">Get in Touch</h2>
-            <p className="text-pink-700 dark:text-white">Reach out for bookings, training, or glam inquiries!</p>
-            <p><strong>📍 Address:</strong> East Legon, Accra</p>
-            <p><strong>📧 Email:</strong> <a href="mailto:lilysluxebeauty@gmail.com" className="text-gold">lilysluxebeauty@gmail.com</a></p>
-            <p><strong>📞 Phone:</strong> +233 55 123 4567</p>
+            <p className="text-pink-700 dark:text-white">Reach out for Bookings, Training, or Glam Inquiries!</p>
+            <p><strong>📍 Address:</strong> Along Bosco-UDS Road, Navrongo - Upper East</p>
+            <p><strong>📧 Email:</strong> <a href="mailto:lilyluxe38@gmail.com" className="text-gold">lilyluxe38@gmail.com</a></p>
+            <p><strong>📞 Phone:</strong> +233 53 498 0811</p>
             <div className="flex space-x-4 mt-4 text-gold text-lg">
-              <a href="https://wa.me/233555017768" target="_blank">WhatsApp</a>
-              <a href="https://instagram.com" target="_blank">Instagram</a>
-              <a href="https://facebook.com" target="_blank">Facebook</a>
+              <a href="https://wa.me/233534980811" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">Tiktok</a>
             </div>
             <iframe
               className="w-full h-48 rounded-xl mt-6"
-              src="https://maps.google.com/maps?q=accra&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              title="Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.108837042738!2d-1.097128924690473!3d10.88535908924661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfd9f8e7b3e3c6b5%3A0x5a5a5a5a5a5a5a5a!2sBosco-UDS%20Road%2C%20Navrongo!5e0!3m2!1sen!2sgh!4v1620000000000!5m2!1sen!2sgh"
+              title="Lily's Luxe Location"
+              allowFullScreen=""
+              loading="lazy"
             ></iframe>
           </div>
 

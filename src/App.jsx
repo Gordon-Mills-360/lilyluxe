@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaMoon, FaSun, FaEye, FaEyeSlash, FaWhatsapp } from 'react-icons/fa';
+import { FaMoon, FaSun, FaEye, FaEyeSlash, FaWhatsapp, FaBirthdayCake, FaHeart } from 'react-icons/fa';
 import { RiSparklingFill } from 'react-icons/ri';
 import Home from './pages/Home';
 import Services from './pages/Services';
@@ -24,6 +24,7 @@ export default function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(true);
   const [sparkles, setSparkles] = useState([]);
+  const [showBirthdayMessage, setShowBirthdayMessage] = useState(true);
   const navigate = useNavigate();
 
   // Create magical sparkles
@@ -68,6 +69,10 @@ export default function App() {
     }
   };
 
+  const handleCloseBirthdayMessage = () => {
+    setShowBirthdayMessage(false);
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen bg-gradient-to-br from-purple-900 to-pink-800 text-white">
@@ -104,6 +109,87 @@ export default function App() {
           >
             A Glossy Polished Perfection...
           </motion.p>
+        </motion.div>
+      </div>
+    );
+  }
+
+  // Birthday surprise modal
+  if (showBirthdayMessage && !isLoggedIn) {
+    return (
+      <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <motion.div
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 100 }}
+          className="bg-gradient-to-br from-pink-500 to-purple-600 rounded-3xl p-8 max-w-md w-full text-center relative overflow-hidden"
+        >
+          {/* Confetti effect */}
+          {[...Array(30)].map((_, i) => (
+            <motion.div
+              key={i}
+              initial={{ y: -100, x: Math.random() * 200 - 100, opacity: 0 }}
+              animate={{ 
+                y: [0, 500],
+                x: [0, Math.random() * 200 - 100],
+                opacity: [1, 0],
+                rotate: [0, Math.random() * 360]
+              }}
+              transition={{
+                duration: 2 + Math.random() * 3,
+                repeat: Infinity,
+                repeatDelay: Math.random() * 5,
+                ease: "linear"
+              }}
+              style={{
+                position: 'absolute',
+                top: -50,
+                left: `${Math.random() * 100}%`,
+                fontSize: `${Math.random() * 20 + 10}px`,
+                color: ['#ff0000', '#ffff00', '#00ff00', '#00ffff', '#ff00ff'][Math.floor(Math.random() * 5)]
+              }}
+              className="pointer-events-none"
+            >
+              {['🎉', '🎊', '🎈', '🎁', '✨', '💝', '🥳'][Math.floor(Math.random() * 7)]}
+            </motion.div>
+          ))}
+
+          <div className="relative z-10">
+            <FaBirthdayCake className="text-6xl text-yellow-300 mx-auto mb-4 animate-bounce" />
+            <h2 className="text-4xl font-bold text-white mb-4">Happy Birthday Lilian!</h2>
+            <p className="text-xl text-white/90 mb-6">
+              Wishing You a Day as Beautiful and Radiant as You Are! ✨
+            </p>
+            <div className="bg-white/20 rounded-xl p-4 mb-6">
+              <p className="text-white italic">
+              
+               "May God bless you abundantly on this special day.
+                May your heart always know peace, your hands create beauty,
+                and your life overflow with Joy, Grace, and Divine Favor.
+
+               You are a light to many — Gentle, Strong, and Radiant.
+               I pray this new year brings you closer to your dreams,
+               deeper in love, and stronger in purpose.
+
+              Keep Shining, Beautiful Soul.
+              You are Deeply Loved. 💖✨!"
+
+
+              </p>
+              <div className="flex justify-center mt-2">
+                <FaHeart className="text-pink-300 animate-pulse" />
+              </div>
+            </div>
+            <motion.button
+              onClick={handleCloseBirthdayMessage}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-pink-600 px-6 py-2 rounded-full font-bold shadow-lg flex items-center gap-2 mx-auto"
+            >
+              Enter Your Luxe World
+              <RiSparklingFill className="animate-pulse" />
+            </motion.button>
+          </div>
         </motion.div>
       </div>
     );
@@ -219,6 +305,7 @@ export default function App() {
     );
   }
 
+  // Rest of your component remains the same...
   return (
     <div className={`min-h-screen transition-colors duration-500 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-br from-rose-50 to-pink-50 text-pink-900'}`}>
       {/* Animated header */}
