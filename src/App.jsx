@@ -287,17 +287,7 @@ export default function App() {
               whileHover={{ scale: 1.05 }}
               className="mt-4 text-sm text-white/70 hover:text-yellow-300 transition-colors flex items-center justify-center gap-2 mx-auto"
             >
-              {darkMode ? (
-                <>
-                  <FaSun className="text-yellow-300" />
-                  Light Mode
-                </>
-              ) : (
-                <>
-                  <FaMoon />
-                  Dark Mode
-                </>
-              )}
+              
             </motion.button>
           </div>
         </motion.div>
@@ -392,7 +382,7 @@ export default function App() {
 
       {/* Floating WhatsApp button */}
       <motion.a
-        href="https://wa.link/fdt40r"
+        href="https://wa.link/vzcae0"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0 }}

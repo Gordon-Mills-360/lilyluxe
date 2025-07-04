@@ -46,7 +46,7 @@ export default function Contact() {
         // WhatsApp Notification to Lilian
         const whatsappMsg = `NEW BOOKING!\n\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}\nPreferred Date: ${appointmentDate?.toDateString() || 'Not selected'}`;
         const encodedMsg = encodeURIComponent(whatsappMsg);
-        const whatsappURL = `https://wa.me/233534980811?text=${encodedMsg}`;
+        const whatsappURL = `https://wa.link/fzlib9=${encodedMsg}`;
         window.open(whatsappURL, "_blank");
 
         // Reset + Redirect
@@ -74,7 +74,7 @@ export default function Contact() {
             <p><strong>📧 Email:</strong> <a href="mailto:lilyluxe38@gmail.com" className="text-gold">lilyluxe38@gmail.com</a></p>
             <p><strong>📞 Phone:</strong> +233 53 498 0811</p>
             <div className="flex space-x-4 mt-4 text-gold text-lg">
-              <a href="https://wa.me/233534980811" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a href="https://wa.link/fzlib9" target="_blank" rel="noopener noreferrer">WhatsApp</a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
               <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">Tiktok</a>
