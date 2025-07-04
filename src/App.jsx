@@ -172,7 +172,7 @@ export default function App() {
                deeper in love, and stronger in purpose.
 
               Keep Shining, Beautiful Soul.
-              You are Deeply Loved. 💖🌸✨!"
+              You are Deeply Loved. 💖✨!"
 
 
               </p>

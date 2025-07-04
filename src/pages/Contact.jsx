@@ -69,9 +69,9 @@ export default function Contact() {
           {/* LEFT: Info + Map */}
           <div className="space-y-6">
             <h2 className="text-2xl font-semibold text-pink-900 dark:text-white">Get in Touch</h2>
-            <p className="text-pink-700 dark:text-white">Reach out for bookings, training, or glam inquiries!</p>
+            <p className="text-pink-700 dark:text-white">Reach out for Bookings, Training, or Glam Inquiries!</p>
             <p><strong>📍 Address:</strong> Along Bosco-UDS Road, Navrongo - Upper East</p>
-            <p><strong>📧 Email:</strong> <a href="mailto:lilyluxe38@gmail.com" className="text-gold">lilysluxebeauty@gmail.com</a></p>
+            <p><strong>📧 Email:</strong> <a href="mailto:lilyluxe38@gmail.com" className="text-gold">lilyluxe38@gmail.com</a></p>
             <p><strong>📞 Phone:</strong> +233 53 498 0811</p>
             <div className="flex space-x-4 mt-4 text-gold text-lg">
               <a href="https://wa.me/233534980811" target="_blank" rel="noopener noreferrer">WhatsApp</a>
