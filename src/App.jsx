@@ -163,13 +163,13 @@ export default function App() {
             <div className="bg-white/20 rounded-xl p-4 mb-6">
               <p className="text-white italic">
               
-               "May God bless you abundantly on this special day.
-                May your heart always know peace, your hands create beauty,
-                and your life overflow with Joy, Grace, and Divine Favor.
+               "May God Bless You Abundantly on this Special Day.
+                May Your Heart Always Know Peace, Your Hands Create Beauty,
+                and Your Life Overflow with Joy, Grace, and Divine Favor.
 
                You are a light to many — Gentle, Strong, and Radiant.
-               I pray this new year brings you closer to your dreams,
-               deeper in love, and stronger in purpose.
+               I Pray this new Year Brings You Closer to Your Dreams,
+               Deeper in Love, and Stronger in Purpose.
 
               Keep Shining, Beautiful Soul.
               You are Deeply Loved. 💖✨!"
