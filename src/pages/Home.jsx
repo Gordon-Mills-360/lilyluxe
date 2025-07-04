@@ -40,7 +40,7 @@ export default function Home() {
             Lily's Nail Luxe
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-white/90 mb-8">
-            Where elegance meets expertise. Your go-to destination for flawless nails, lashes, brows & glam.
+            Where Elegance Meets Expertise. Your go-to Destination for Flawless Nails, Lashes, Brows & Glam.
           </p>
           <div className="flex gap-4 justify-center">
             <button 

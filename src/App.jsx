@@ -156,20 +156,20 @@ export default function App() {
 
           <div className="relative z-10">
             <FaBirthdayCake className="text-6xl text-yellow-300 mx-auto mb-4 animate-bounce" />
-            <h2 className="text-4xl font-bold text-white mb-4">Happy Birthday Lilian!</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Blessed Birthday Lilian!</h2>
             <p className="text-xl text-white/90 mb-6">
               Wishing You a Day as Beautiful and Radiant as You Are! ✨
             </p>
             <div className="bg-white/20 rounded-xl p-4 mb-6">
               <p className="text-white italic">
               
-               "May God bless you abundantly on this special day.
-                May your heart always know peace, your hands create beauty,
-                and your life overflow with Joy, Grace, and Divine Favor.
+               "May God Bless You Abundantly on this Special Day.
+                May Your Heart Always Know Peace, Your Hands Create Beauty,
+                and Your Life Overflow with Joy, Grace, and Divine Favor.
 
                You are a light to many — Gentle, Strong, and Radiant.
-               I pray this new year brings you closer to your dreams,
-               deeper in love, and stronger in purpose.
+               I Pray this new Year Brings You Closer to Your Dreams,
+               Deeper in Love, and Stronger in Purpose.
 
               Keep Shining, Beautiful Soul.
               You are Deeply Loved. 💖✨!"
@@ -287,17 +287,7 @@ export default function App() {
               whileHover={{ scale: 1.05 }}
               className="mt-4 text-sm text-white/70 hover:text-yellow-300 transition-colors flex items-center justify-center gap-2 mx-auto"
             >
-              {darkMode ? (
-                <>
-                  <FaSun className="text-yellow-300" />
-                  Light Mode
-                </>
-              ) : (
-                <>
-                  <FaMoon />
-                  Dark Mode
-                </>
-              )}
+              
             </motion.button>
           </div>
         </motion.div>
@@ -392,7 +382,7 @@ export default function App() {
 
       {/* Floating WhatsApp button */}
       <motion.a
-        href="https://wa.link/fdt40r"
+        href="https://wa.link/vzcae0"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0 }}
