@@ -167,7 +167,7 @@ export default function App() {
                 May your heart always know peace, your hands create beauty,
                 and your life overflow with joy, grace, and divine favor.
 
-               You are a light to many — gentle, strong, and radiant.
+               You are a light to many — Gentle, Strong, and Radiant.
                I pray this new year brings you closer to your dreams,
                deeper in love, and stronger in purpose.
 
