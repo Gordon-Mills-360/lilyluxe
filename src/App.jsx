@@ -156,7 +156,7 @@ export default function App() {
 
           <div className="relative z-10">
             <FaBirthdayCake className="text-6xl text-yellow-300 mx-auto mb-4 animate-bounce" />
-            <h2 className="text-4xl font-bold text-white mb-4">Happy Birthday Lilian!</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Blessed Birthday Lilian!</h2>
             <p className="text-xl text-white/90 mb-6">
               Wishing You a Day as Beautiful and Radiant as You Are! ✨
             </p>
