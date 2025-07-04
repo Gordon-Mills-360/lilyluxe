@@ -16,7 +16,6 @@ import Courses from './pages/Courses';
 import Partnership from './pages/Partnership';
 import AffiliateProgram from './pages/AffiliateProgram';
 
-
 export default function App() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -81,9 +80,13 @@ export default function App() {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-            className="mx-auto mb-6 text-6xl"
+            className="mx-auto mb-6"
           >
-            💅
+            <img 
+              src="/logo.png" 
+              alt="Lily's Luxe Logo"
+              className="w-24 h-24 object-contain animate-pulse"
+            />
           </motion.div>
           <motion.h1 
             initial={{ y: 20, opacity: 0 }}
@@ -99,7 +102,7 @@ export default function App() {
             transition={{ delay: 0.6, duration: 0.5 }}
             className="text-pink-200"
           >
-            Preparing something beautiful...
+            A Glossy Polished Perfection...
           </motion.p>
         </motion.div>
       </div>
@@ -226,7 +229,11 @@ export default function App() {
         className={`backdrop-blur-md ${darkMode ? 'bg-black/80' : 'bg-white/80'} shadow-lg fixed top-0 left-0 right-0 p-4 flex justify-between items-center border-b ${darkMode ? 'border-pink-900' : 'border-pink-200'} z-50`}
       >
         <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-2">
-          <RiSparklingFill className={`text-xl ${darkMode ? 'text-yellow-300' : 'text-pink-500'} animate-pulse`} />
+          <img 
+            src="/logo.png" 
+            alt="Lily's Luxe Logo"
+            className="h-10 w-10 object-contain"
+          />
           <h1 className="text-xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
             Lily's Nail Luxe
           </h1>
